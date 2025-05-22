@@ -1,3 +1,4 @@
+import { social } from "@/lib/social";
 import { Github, Linkedin, Mail } from "lucide-react";
 
 export function Footer() {
@@ -11,13 +12,13 @@ export function Footer() {
           </div>
           
           <div className="flex items-center space-x-6">
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-foreground/70 hover:text-theme-purple transition">
+            <a href={social.github} target="_blank" rel="noopener noreferrer" className="text-foreground/70 hover:text-theme-purple transition">
               <Github size={20} />
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-foreground/70 hover:text-theme-purple transition">
+            <a href={social.linkedin} target="_blank" rel="noopener noreferrer" className="text-foreground/70 hover:text-theme-purple transition">
               <Linkedin size={20} />
             </a>
-            <a href="mailto:email@example.com" className="text-foreground/70 hover:text-theme-purple transition">
+            <a href={social.mail} className="text-foreground/70 hover:text-theme-purple transition">
               <Mail size={20} />
             </a>
           </div>

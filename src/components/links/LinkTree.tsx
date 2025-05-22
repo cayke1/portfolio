@@ -1,5 +1,6 @@
 
 import { Globe, Github, Linkedin, Twitter, Instagram, Mail, File, MessageSquare } from "lucide-react";
+import { social } from '../../lib/social';
 
 interface LinkItem {
   id: number;
@@ -29,13 +30,13 @@ const links: LinkItem[] = [
   {
     id: 2,
     title: "GitHub",
-    url: "https://github.com",
+    url: social.github,
     icon: "github"
   },
   {
     id: 3,
     title: "LinkedIn",
-    url: "https://linkedin.com",
+    url: social.linkedin,
     icon: "linkedin"
   },
   {
@@ -53,7 +54,7 @@ const links: LinkItem[] = [
   {
     id: 6,
     title: "Email",
-    url: "mailto:email@example.com",
+    url: social.mail,
     icon: "mail"
   },
   {

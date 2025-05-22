@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Menu, X, Github, Linkedin, Mail } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { social } from "@/lib/social";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,10 +26,10 @@ export function Navbar() {
   ];
 
   return (
-    <header 
+    <header
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled 
-          ? "bg-background/95 backdrop-blur-sm shadow-md" 
+        scrolled
+          ? "bg-background/95 backdrop-blur-sm shadow-md"
           : "bg-transparent"
       }`}
     >
@@ -46,9 +47,9 @@ export function Navbar() {
               const isActive = pathname === item.path;
 
               return (
-                <Link 
-                  key={item.name} 
-                  href={item.path} 
+                <Link
+                  key={item.name}
+                  href={item.path}
                   className={`relative py-2 text-sm font-medium transition hover:text-theme-purple ${
                     isActive
                       ? "text-theme-purple after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:bg-theme-purple"
@@ -62,13 +63,26 @@ export function Navbar() {
           </div>
 
           <div className="flex items-center space-x-4 pl-8 border-l border-border">
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-foreground/70 hover:text-theme-purple transition">
+            <a
+              href={social.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-foreground/70 hover:text-theme-purple transition"
+            >
               <Github size={18} />
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-foreground/70 hover:text-theme-purple transition">
+            <a
+              href={social.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-foreground/70 hover:text-theme-purple transition"
+            >
               <Linkedin size={18} />
             </a>
-            <a href="mailto:email@example.com" className="text-foreground/70 hover:text-theme-purple transition">
+            <a
+              href={social.mail}
+              className="text-foreground/70 hover:text-theme-purple transition"
+            >
               <Mail size={18} />
             </a>
           </div>
@@ -76,7 +90,7 @@ export function Navbar() {
 
         {/* Mobile Menu Button */}
         <div className="md:hidden">
-          <button 
+          <button
             onClick={() => setIsOpen(!isOpen)}
             className="text-foreground focus:outline-none"
           >
@@ -93,9 +107,9 @@ export function Navbar() {
               const isActive = pathname === item.path;
 
               return (
-                <Link 
-                  key={item.name} 
-                  href={item.path} 
+                <Link
+                  key={item.name}
+                  href={item.path}
                   className={`block py-3 text-base font-medium transition ${
                     isActive ? "text-theme-purple" : "text-foreground/80"
                   }`}
@@ -107,13 +121,26 @@ export function Navbar() {
             })}
 
             <div className="flex items-center space-x-6 pt-4 mt-4 border-t border-border">
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-foreground/70 hover:text-theme-purple transition">
+              <a
+                href={social.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-foreground/70 hover:text-theme-purple transition"
+              >
                 <Github size={20} />
               </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-foreground/70 hover:text-theme-purple transition">
+              <a
+                href={social.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-foreground/70 hover:text-theme-purple transition"
+              >
                 <Linkedin size={20} />
               </a>
-              <a href="mailto:email@example.com" className="text-foreground/70 hover:text-theme-purple transition">
+              <a
+                href={social.mail}
+                className="text-foreground/70 hover:text-theme-purple transition"
+              >
                 <Mail size={20} />
               </a>
             </div>
