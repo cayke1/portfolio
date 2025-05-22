@@ -3,3 +3,8 @@ export const social = {
     linkedin: 'https://www.linkedin.com/in/cayke-veras/',
     mail: 'mailto:contato.cayke@gmail.com'
 }
+
+export const name = {
+    firstName: "Cayke",
+    lastName: "Veras"
+}

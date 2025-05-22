@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Menu, X, Github, Linkedin, Mail } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { social } from "@/lib/social";
+import { name, social } from "@/lib/social";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -36,7 +36,7 @@ export function Navbar() {
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
         <div className="flex-1">
           <Link href="/" className="text-2xl font-bold text-gradient">
-            Dev<span className="text-white">Portfólio</span>
+            {name.firstName} {" "}<span className="text-white">{name.lastName}</span>
           </Link>
         </div>
 
