@@ -21,15 +21,9 @@ const links: LinkItem[] = [
     icon: "linkedin",
   },
   {
-    id: 4,
-    title: "Twitter",
-    url: "https://twitter.com",
-    icon: "twitter",
-  },
-  {
     id: 5,
     title: "Instagram",
-    url: "https://instagram.com",
+    url: social.instagram,
     icon: "instagram",
   },
   {
@@ -44,17 +38,11 @@ const links: LinkItem[] = [
     url: "#",
     icon: "file",
   },
-  {
-    id: 8,
-    title: "Chat",
-    url: "#",
-    icon: "chat",
-  },
 ];
 
 export function LinkTree() {
   return (
-    <div className="max-w-md mx-auto px-4">
+    <div className="max-w-md mx-auto px-4 pb-4">
       <div className="mb-8 text-center">
         <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden border-2 border-theme-purple p-1">
           <img
