@@ -14,6 +14,7 @@ import { Switch } from "@/components/ui/switch";
 import { useState } from "react";
 import { Project } from "@/types/Project";
 import { Experience } from "@/types/Experience";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Dashboard() {
   // Simplified state to track visibility of projects and experiences
@@ -21,6 +22,7 @@ export default function Dashboard() {
   const [visibleExperiences, setVisibleExperiences] = useState<number[]>([
     1, 2, 3, 4, 5,
   ]);
+  const { t } = useLanguage();
 
   const projects: Project[] = [
     {
@@ -169,16 +171,16 @@ export default function Dashboard() {
       {/* Projects Section */}
       <Card>
         <CardHeader className="bg-muted/20">
-          <CardTitle>Gerenciar Projetos</CardTitle>
+          <CardTitle>{t("dashboard_projects_title")}</CardTitle>
         </CardHeader>
         <CardContent className="p-0">
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>Projeto</TableHead>
-                <TableHead>Categoria</TableHead>
-                <TableHead>Status</TableHead>
-                <TableHead className="w-24 text-center">Visível</TableHead>
+                <TableHead>{t("dashboard_projects_column_project")}</TableHead>
+                <TableHead>{t("dashboard_projects_column_category")}</TableHead>
+                <TableHead>{t("dashboard_projects_column_status")}</TableHead>
+                <TableHead className="w-24 text-center">{t("dashboard_projects_column_visible")}</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -192,7 +194,9 @@ export default function Dashboard() {
                         project.status === "completo" ? "default" : "secondary"
                       }
                     >
-                      {project.status}
+                      {project.status === "completo" 
+                        ? t("dashboard_projects_status_complete") 
+                        : t("dashboard_projects_status_progress")}
                     </Badge>
                   </TableCell>
                   <TableCell className="text-center">
@@ -214,16 +218,16 @@ export default function Dashboard() {
       {/* Experiences Section */}
       <Card>
         <CardHeader className="bg-muted/20">
-          <CardTitle>Gerenciar Experiências</CardTitle>
+          <CardTitle>{t("dashboard_experiences_title")}</CardTitle>
         </CardHeader>
         <CardContent className="p-0">
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>Título</TableHead>
-                <TableHead>Empresa/Instituição</TableHead>
-                <TableHead>Tipo</TableHead>
-                <TableHead className="w-24 text-center">Visível</TableHead>
+                <TableHead>{t("dashboard_experiences_column_title")}</TableHead>
+                <TableHead>{t("dashboard_experiences_column_company")}</TableHead>
+                <TableHead>{t("dashboard_experiences_column_type")}</TableHead>
+                <TableHead className="w-24 text-center">{t("dashboard_experiences_column_visible")}</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -242,10 +246,10 @@ export default function Dashboard() {
                       }
                     >
                       {exp.type === "work"
-                        ? "Trabalho"
+                        ? t("experience_type_work")
                         : exp.type === "education"
-                        ? "Educação"
-                        : "Conquista"}
+                        ? t("experience_type_education")
+                        : t("experience_type_achievement")}
                     </Badge>
                   </TableCell>
                   <TableCell className="text-center">
@@ -263,9 +267,8 @@ export default function Dashboard() {
       </Card>
 
       <div className="text-center text-muted-foreground text-sm mt-4">
-        Esta interface é simplificada apenas para visualização e controle de
-        exibição dos itens. <br />O toggle de visibilidade indica quais itens
-        serão exibidos no site público.
+        {t("dashboard_footer_note")} <br />
+        {t("dashboard_footer_note_2")}
       </div>
     </div>
   );
