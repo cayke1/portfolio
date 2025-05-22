@@ -20,8 +20,8 @@ export const projectsData: Project[] = [
     id: 2,
     title: "Discord Bot Logger",
     description:
-      "Discord Bot Logger é um bot desenvolvido para registrar e monitorar eventos de servidores Discord. Ele permite acompanhar logs importantes como entradas, saídas, exclusões de mensagens e muito mais, oferecendo uma ferramenta essencial para administradores que buscam organização e controle em suas comunidades.",
-    tags: ["Node.js", "Discord.js", "SOLID"],
+      "Discord Bot Logger é um bot desenvolvido para registrar logs de aplicações e enviar em canais específicos no discord. Ele permite acompanhar logs importantes como erros ou qualquer informação que você precise, a regra de negócio é feita pelo usuário.",
+    tags: ["Node.js", "Discord.js", "SOLID", "CI/CD", "Docker"],
     image: "discord-log.png",
     github: "https://github.com/cayke1/Discord-bot-logger",
     category: "Bot",
