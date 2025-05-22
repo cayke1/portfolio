@@ -3,11 +3,14 @@ import { Menu, X, Github, Linkedin, Mail } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { name, social } from "@/lib/constants/social";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { LanguageToggle } from "@/components/common/LanguageToggle";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
+  const { t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,10 +22,10 @@ export function Navbar() {
   }, []);
 
   const navItems = [
-    { name: "Início", path: "/" },
-    { name: "Projetos", path: "/projects" },
-    { name: "Experiência", path: "/experience" },
-    { name: "Links", path: "/links" },
+    { name: t("nav_home"), path: "/" },
+    { name: t("nav_projects"), path: "/projects" },
+    { name: t("nav_experience"), path: "/experience" },
+    { name: t("nav_links"), path: "/links" },
   ];
 
   return (
@@ -63,6 +66,7 @@ export function Navbar() {
           </div>
 
           <div className="flex items-center space-x-4 pl-8 border-l border-border">
+            <LanguageToggle />
             <a
               href={social.github}
               target="_blank"
@@ -121,6 +125,7 @@ export function Navbar() {
             })}
 
             <div className="flex items-center space-x-6 pt-4 mt-4 border-t border-border">
+              <LanguageToggle />
               <a
                 href={social.github}
                 target="_blank"

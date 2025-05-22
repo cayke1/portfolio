@@ -1,11 +1,15 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Briefcase, GraduationCap, Award } from "lucide-react";
-import { experience } from "@/lib/constants/experience";
+import { experience, experienceEn } from "@/lib/constants/experience";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export function Timeline() {
   const [visibleItems, setVisibleItems] = useState<number[]>([]);
-  const timelineData = experience;
+  const { language } = useLanguage();
+  const xp = language === "pt" ? experience : experienceEn;
+  const timelineData = xp;
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {

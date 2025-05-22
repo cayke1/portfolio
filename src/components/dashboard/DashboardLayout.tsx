@@ -2,6 +2,7 @@
 import { ReactNode } from "react";
 import { DashboardSidebar } from "./DashboardSidebar";
 import { Bell, Search, User } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface DashboardLayoutProps {
   children: ReactNode;
@@ -9,6 +10,8 @@ interface DashboardLayoutProps {
 }
 
 export function DashboardLayout({ children, title }: DashboardLayoutProps) {
+  const { t } = useLanguage();
+  
   return (
     <div className="flex min-h-screen bg-background">
       <DashboardSidebar />
@@ -25,7 +28,7 @@ export function DashboardLayout({ children, title }: DashboardLayoutProps) {
               />
               <input
                 type="text"
-                placeholder="Buscar..."
+                placeholder={t("dashboard_search")}
                 className="py-1.5 pl-9 pr-4 rounded-md bg-muted/50 focus:bg-muted text-sm w-48 border-none focus:outline-none focus:ring-1 focus:ring-theme-purple"
               />
             </div>

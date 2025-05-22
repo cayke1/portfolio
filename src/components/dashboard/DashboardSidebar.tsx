@@ -8,6 +8,7 @@ import {
   LogOut,
   Link as LinkIcon
 } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface NavItem {
   title: string;
@@ -17,30 +18,31 @@ interface NavItem {
 
 export function DashboardSidebar() {
   const pathname = usePathname();
+  const { t } = useLanguage();
 
   const navItems: NavItem[] = [
     {
-      title: "Dashboard",
+      title: t("nav_dashboard"),
       href: "/dashboard",
       icon: <LayoutDashboard size={18} />
     },
     {
-      title: "Projetos",
+      title: t("nav_projects"),
       href: "/dashboard/projects",
       icon: <FileCode size={18} />
     },
     {
-      title: "Experiências",
+      title: t("nav_experience"),
       href: "/dashboard/experience",
       icon: <Briefcase size={18} />
     },
     {
-      title: "Links",
+      title: t("nav_links"),
       href: "/dashboard/links",
       icon: <LinkIcon size={18} />
     },
     {
-      title: "Configurações",
+      title: t("nav_settings"),
       href: "/dashboard/settings",
       icon: <Settings size={18} />
     }
@@ -81,7 +83,7 @@ export function DashboardSidebar() {
       <div className="p-3 border-t border-border">
         <button className="w-full flex items-center px-3 py-2 rounded-md text-sm text-muted-foreground hover:bg-muted hover:text-foreground transition">
           <LogOut size={18} className="mr-3" />
-          Sair
+          {t("dashboard_logout")}
         </button>
       </div>
     </aside>

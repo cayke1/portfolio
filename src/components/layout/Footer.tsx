@@ -1,7 +1,10 @@
 import { name, social } from "@/lib/constants/social";
 import { Github, Linkedin, Mail } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export function Footer() {
+  const { t } = useLanguage();
+  
   return (
     <footer className="bg-muted/30 py-8 mt-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -12,7 +15,7 @@ export function Footer() {
               <span className="text-foreground">{name.lastName}</span>
             </p>
             <p className="text-sm text-muted-foreground mt-1">
-              Projetos e experiências de desenvolvimento
+              {t("footer_subtitle")}
             </p>
           </div>
 

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, spring } from "framer-motion";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface Skill {
   name: string;
@@ -24,6 +25,7 @@ export function Skills() {
   const [activeCategory, setActiveCategory] = useState("all");
   const [filteredSkills, setFilteredSkills] = useState(skills);
   const [visible, setVisible] = useState(false);
+  const { t } = useLanguage();
 
   const categories = [
     "all",
@@ -48,10 +50,10 @@ export function Skills() {
     <section className="py-20 bg-muted/10">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl font-bold mb-2 text-center">
-          Minhas <span className="text-gradient">habilidades</span>
+          {t("skills_title")} <span className="text-gradient">{t("skills_title_highlight")}</span>
         </h2>
         <p className="text-muted-foreground text-center mb-8">
-          Tecnologias e ferramentas que utilizo
+          {t("skills_subtitle")}
         </p>
 
         <div className="flex justify-center mb-8">
@@ -66,7 +68,9 @@ export function Skills() {
                     : "bg-muted text-muted-foreground hover:bg-muted/70"
                 }`}
               >
-                {category.charAt(0).toUpperCase() + category.slice(1)}
+                {category === "all" 
+                  ? t("projects_category_all") 
+                  : category.charAt(0).toUpperCase() + category.slice(1)}
               </button>
             ))}
           </div>

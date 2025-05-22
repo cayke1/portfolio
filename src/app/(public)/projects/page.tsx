@@ -2,19 +2,22 @@
 import { useState } from "react";
 import { ArrowUpRight, Code, CodeXml, Github } from "lucide-react";
 import { motion } from "framer-motion";
-import { projectsData } from "@/lib/constants/projects";
+import { projectsData, projectsDataEn } from "@/lib/constants/projects";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Projects() {
   const [activeCategory, setActiveCategory] = useState<string>("Todos");
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [hoveredProject, setHoveredProject] = useState<number | null>(null);
+  const { t, language } = useLanguage();
 
+  const ProjectsData = language === 'pt' ? projectsData : projectsDataEn;
   const categories = [
     "Todos",
-    ...Array.from(new Set(projectsData.map((project) => project.category))),
+    ...Array.from(new Set(ProjectsData.map((project) => project.category))),
   ];
 
-  const filteredProjects = projectsData.filter((project) => {
+  const filteredProjects = ProjectsData.filter((project) => {
     const matchesCategory =
       activeCategory === "Todos" || project.category === activeCategory;
     const matchesSearch =
@@ -33,11 +36,13 @@ export default function Projects() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h1 className="text-4xl font-bold mb-4">
-              Meus <span className="text-gradient">Projetos</span>
+              {t("projects_title")}{" "}
+              <span className="text-gradient">
+                {t("projects_title_highlight")}
+              </span>
             </h1>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Explore meu portfólio de trabalhos e projetos pessoais, destacando
-              minhas habilidades e experiências com diversas tecnologias.
+              {t("projects_subtitle")}
             </p>
           </div>
 
@@ -53,7 +58,7 @@ export default function Projects() {
                       : "bg-muted text-muted-foreground hover:bg-muted/70"
                   }`}
                 >
-                  {category}
+                  {category === "Todos" ? t("projects_category_all") : category}
                 </button>
               ))}
             </div>
@@ -61,7 +66,7 @@ export default function Projects() {
             <div className="w-full md:w-auto">
               <input
                 type="text"
-                placeholder="Buscar projetos..."
+                placeholder={t("projects_search")}
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="w-full md:w-64 px-4 py-2 rounded-md bg-muted/50 border-none focus:outline-none focus:ring-1 focus:ring-theme-purple"
@@ -168,7 +173,7 @@ export default function Projects() {
             ) : (
               <div className="col-span-full py-12 text-center">
                 <p className="text-muted-foreground">
-                  Nenhum projeto encontrado.
+                  {t("projects_not_found")}
                 </p>
               </div>
             )}

@@ -2,23 +2,16 @@ import { ArrowUpRight, Code, CodeXml, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import Link from "next/link";
-import { projectsData } from "@/lib/constants/projects";
-
-interface Project {
-  id: number;
-  title: string;
-  description: string;
-  tags: string[];
-  image: string;
-  github?: string;
-  demo?: string;
-  featured: boolean;
-}
+import { projectsData, projectsDataEn } from "@/lib/constants/projects";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export function ProjectsGrid() {
   const [hoveredProject, setHoveredProject] = useState<number | null>(null);
+  const { t, language } = useLanguage();
+  const ProjectsDataTranslated =
+    language === "pt" ? projectsData : projectsDataEn;
 
-  const projects = projectsData.filter((proj) => proj.id <= 3);
+  const projects = ProjectsDataTranslated.filter((p) => p.id <= 3);
 
   return (
     <section className="py-20">
@@ -26,11 +19,12 @@ export function ProjectsGrid() {
         <div className="flex flex-col md:flex-row justify-between items-center mb-12">
           <div>
             <h2 className="text-3xl font-bold mb-2">
-              Projetos <span className="text-gradient">em destaque</span>
+              {t("projects_title")}{" "}
+              <span className="text-gradient">
+                {t("projects_title_highlight")}
+              </span>
             </h2>
-            <p className="text-muted-foreground">
-              Alguns dos meus trabalhos recentes
-            </p>
+            <p className="text-muted-foreground">{t("projects_subtitle")}</p>
           </div>
 
           <Link href="/projects" className="mt-4 md:mt-0">
@@ -38,7 +32,7 @@ export function ProjectsGrid() {
               variant="ghost"
               className="text-theme-purple hover:bg-theme-purple/10 flex items-center gap-2"
             >
-              Ver todos os projetos
+              {t("projects_view_all")}
               <ArrowUpRight size={16} />
             </Button>
           </Link>

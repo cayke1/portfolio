@@ -52,3 +52,57 @@ export const experience: Experience[] = [
       "Estudos em programação estruturada, estrutura de dados (C) e programação orientada a objetos (Java).",
   },
 ];
+
+export const experienceEn: Experience[] = [
+  {
+    id: 1,
+    type: "work",
+    title: "Full Stack Developer",
+    company: "Lovetickets",
+    location: "Remote",
+    date: "2024 - 2025",
+    description:
+      "Worked on API maintenance and interface development for the 'Checker' ticket validation system, used in various events for real-time validation.",
+    skills: [
+      "Node.js",
+      "Next.js",
+      "React",
+      "TypeScript",
+      "WebSockets",
+      "React Query",
+      "TailwindCSS",
+    ],
+  },
+  {
+    id: 2,
+    type: "work",
+    title: "Backend Intern",
+    company: "Projeto Sigcer",
+    location: "Remote",
+    date: "2023 - 2024",
+    description:
+      "Developed the clinical management API and the web conferencing feature using WebRTC and Socket.IO, in addition to contributing to frontend tasks related to real-time communication.",
+    skills: ["NestJS", "CI/CD", "Swagger", "React", "Socket.IO", "WebRTC"],
+  },
+  {
+    id: 3,
+    type: "education",
+    title: "Bachelor's in Computer Science",
+    institution: "Estácio (Distance Learning)",
+    location: "Palmas, TO",
+    date: "2024 - Present",
+    description:
+      "Ongoing course focused on computer science fundamentals applied to software development.",
+  },
+  {
+    id: 4,
+    type: "education",
+    title: "Computer Science",
+    institution: "Federal University of Tocantins",
+    location: "Palmas, TO",
+    date: "2022 - Present",
+    description:
+      "Studies in structured programming, data structures (C), and object-oriented programming (Java).",
+  },
+];
+

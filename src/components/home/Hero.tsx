@@ -2,9 +2,11 @@ import { ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export function Hero() {
   const [visible, setVisible] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     setVisible(true);
@@ -21,17 +23,16 @@ export function Hero() {
           }`}
         >
           <p className="text-theme-purple mb-4 font-semibold">
-            Desenvolvedor Full Stack
+            {t("hero_role")}
           </p>
 
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Construindo experiências digitais <br />
-            <span className="text-gradient">inovadoras e impactantes</span>
+            {t("hero_title")} <br />
+            <span className="text-gradient">{t("hero_title_highlight")}</span>
           </h1>
 
           <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Transformando ideias em aplicações intuitivas e escaláveis com
-            tecnologias modernas e práticas de desenvolvimento ágil.
+            {t("hero_description")}
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -40,7 +41,7 @@ export function Hero() {
                 size="lg"
                 className="bg-theme-purple hover:bg-theme-purple/90"
               >
-                Ver Projetos
+                {t("hero_button_projects")}
               </Button>
             </Link>
             <Link href="/experience">
@@ -49,7 +50,7 @@ export function Hero() {
                 variant="outline"
                 className="border-theme-purple text-theme-purple hover:bg-theme-purple/10"
               >
-                Sobre mim
+                {t("hero_button_about")}
               </Button>
             </Link>
           </div>
