@@ -35,7 +35,7 @@ const links: LinkItem[] = [
   {
     id: 7,
     title: "Currículo",
-    url: "#",
+    url: social.curriculum,
     icon: "file",
   },
 ];
