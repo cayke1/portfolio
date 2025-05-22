@@ -1,4 +1,4 @@
-import { social } from "../../lib/social";
+import { social } from "../../lib/constants/social";
 import { LinkIconMap, LinkItem } from "@/types/Link";
 
 const links: LinkItem[] = [

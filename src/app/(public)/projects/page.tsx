@@ -1,81 +1,8 @@
 "use client";
 import { useState } from "react";
-import { ArrowUpRight, Github } from "lucide-react";
+import { ArrowUpRight, Code, CodeXml, Github } from "lucide-react";
 import { motion } from "framer-motion";
-import { Project } from "@/types/Project";
-
-const projectsData: Project[] = [
-  {
-    id: 1,
-    title: "E-commerce Dashboard",
-    description:
-      "Dashboard administrativo para e-commerce com análise de dados em tempo real e gestão de produtos.",
-    tags: ["React", "TypeScript", "Tailwind CSS", "ChartJS"],
-    image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7",
-    github: "https://github.com",
-    demo: "https://demo.com",
-    category: "Web",
-    status: "completo",
-  },
-  {
-    id: 2,
-    title: "Aplicativo de Finanças",
-    description:
-      "App para gerenciamento financeiro pessoal com categorização automática de gastos.",
-    tags: ["React Native", "Firebase", "Redux"],
-    image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5",
-    github: "https://github.com",
-    category: "Mobile",
-    status: "em andamento",
-  },
-  {
-    id: 3,
-    title: "API de Pagamentos",
-    description:
-      "Sistema de processamento de pagamentos com integração a múltiplos gateways.",
-    tags: ["Node.js", "Express", "MongoDB", "JWT"],
-    image: "https://images.unsplash.com/photo-1518770660439-4636190af475",
-    github: "https://github.com",
-    demo: "https://demo.com",
-    category: "Backend",
-    status: "completo",
-  },
-  {
-    id: 4,
-    title: "Landing Page para SaaS",
-    description:
-      "Página de destino para produto SaaS focado em produtividade e colaboração entre times.",
-    tags: ["Next.js", "Framer Motion", "GSAP", "Vercel"],
-    image: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05",
-    github: "https://github.com",
-    demo: "https://demo.com",
-    category: "Web",
-    status: "completo",
-  },
-  {
-    id: 5,
-    title: "Biblioteca de Componentes UI",
-    description:
-      "Conjunto de componentes reutilizáveis com design system consistente e documentação.",
-    tags: ["React", "Storybook", "Jest", "Styled Components"],
-    image: "https://images.unsplash.com/photo-1470813740244-df37b8c1edcb",
-    github: "https://github.com",
-    demo: "https://demo.com",
-    category: "Frontend",
-    status: "completo",
-  },
-  {
-    id: 6,
-    title: "CLI para Automação de Tarefas",
-    description:
-      "Ferramenta de linha de comando para automação de fluxos de trabalho de desenvolvimento.",
-    tags: ["Node.js", "Commander", "Inquirer", "Shell"],
-    image: "https://images.unsplash.com/photo-1500673922987-e212871fec22",
-    github: "https://github.com",
-    category: "Utilitário",
-    status: "em andamento",
-  },
-];
+import { projectsData } from "@/lib/constants/projects";
 
 export default function Projects() {
   const [activeCategory, setActiveCategory] = useState<string>("Todos");
@@ -168,7 +95,31 @@ export default function Projects() {
                         hoveredProject === project.id ? "opacity-100" : ""
                       }`}
                     >
-                      {project.github && (
+                      {project.github && typeof project.github === "object" && (
+                        <div className="flex gap-4">
+                          <a
+                            href={project.github.backend}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="bg-white/10 hover:bg-white/20 p-2 rounded-full backdrop-blur-sm transition"
+                            title="Backend"
+                          >
+                            <Code className="text-white" size={20} />
+                          </a>
+
+                          <a
+                            href={project.github.frontend}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="bg-white/10 hover:bg-white/20 p-2 rounded-full backdrop-blur-sm transition"
+                            title="Frontend"
+                          >
+                            <CodeXml className="text-white" size={20} />
+                          </a>
+                        </div>
+                      )}
+
+                      {project.github && typeof project.github === "string" && (
                         <a
                           href={project.github}
                           target="_blank"

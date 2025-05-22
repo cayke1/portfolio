@@ -1,4 +1,4 @@
-import { name, social } from "@/lib/social";
+import { name, social } from "@/lib/constants/social";
 import { Github, Linkedin, Mail } from "lucide-react";
 
 export function Footer() {

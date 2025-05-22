@@ -4,8 +4,13 @@ export interface Project {
   description: string;
   tags: string[];
   image: string;
-  github?: string;
+  github?:
+    | string
+    | {
+        backend: string;
+        frontend: string;
+      };
   demo?: string;
   category: string;
-  status: 'completo' | 'em andamento' | 'planejado';
+  status: "completo" | "em andamento" | "planejado";
 }
