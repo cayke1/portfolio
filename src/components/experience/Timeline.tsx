@@ -2,20 +2,9 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Briefcase, GraduationCap, Award } from "lucide-react";
+import { Experience } from "@/types/Experience";
 
-interface TimelineItem {
-  id: number;
-  type: "work" | "education" | "achievement";
-  title: string;
-  company?: string;
-  institution?: string;
-  location: string;
-  date: string;
-  description: string;
-  skills?: string[];
-}
-
-const timelineData: TimelineItem[] = [
+const timelineData: Experience[] = [
   {
     id: 1,
     type: "work",

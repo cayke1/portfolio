@@ -13,6 +13,7 @@ import { Badge } from "@/components/ui/badge";
 import { Switch } from "@/components/ui/switch";
 import { useState } from "react";
 import { Project } from "@/types/Project";
+import { Experience } from "@/types/Experience";
 
 export default function Dashboard() {
   // Simplified state to track visibility of projects and experiences
@@ -94,36 +95,58 @@ export default function Dashboard() {
     },
   ];
 
-  const experiences = [
+  const experiences: Experience[] = [
     {
       id: 1,
+      type: "work",
       title: "Desenvolvedor Full Stack",
       company: "Tech Solutions",
-      type: "work",
+      location: "São Paulo, SP",
+      date: "2022 - Presente",
+      description:
+        "Desenvolvimento de aplicações web e APIs para clientes enterprise, com foco em soluções escaláveis e de alta performance.",
+      skills: ["React", "Node.js", "TypeScript", "MongoDB", "AWS"],
     },
     {
       id: 2,
+      type: "work",
       title: "Desenvolvedor Frontend",
       company: "Digital Agency",
-      type: "work",
+      location: "Remoto",
+      date: "2020 - 2022",
+      description:
+        "Criação de interfaces responsivas e acessíveis para aplicações web, trabalhando com times ágeis e em múltiplos projetos simultaneamente.",
+      skills: ["React", "Vue.js", "SCSS", "Redux", "Jest"],
     },
     {
       id: 3,
-      title: "Bacharelado em Ciência da Computação",
-      company: "Universidade de São Paulo",
       type: "education",
+      title: "Bacharelado em Ciência da Computação",
+      institution: "Universidade de São Paulo",
+      location: "São Paulo, SP",
+      date: "2016 - 2020",
+      description:
+        "Formação em desenvolvimento de software, algoritmos, estruturas de dados e engenharia de sistemas.",
     },
     {
       id: 4,
-      title: "Hackathon - 1º Lugar",
-      company: "",
       type: "achievement",
+      title: "Hackathon - 1º Lugar",
+      location: "São Paulo, SP",
+      date: "2021",
+      description:
+        "Solução inovadora para rastreamento e otimização de cadeia de suprimentos utilizando blockchain e IoT.",
     },
     {
       id: 5,
+      type: "work",
       title: "Estágio em Desenvolvimento",
       company: "Startup X",
-      type: "work",
+      location: "Remoto",
+      date: "2019 - 2020",
+      description:
+        "Desenvolvimento de recursos para aplicação SaaS de gestão financeira, utilizando React e Node.js.",
+      skills: ["JavaScript", "React", "CSS", "Node.js"],
     },
   ];
 
