@@ -6,7 +6,7 @@ export const projectsData: Project[] = [
     title: "Sereno",
     description:
       "Sereno é um sistema de gestão desenvolvido para profissionais da saúde mental, com foco em proporcionar uma experiência tranquila e eficiente. Ele automatiza tarefas como agendamento, gestão de documentação, acompanhamento de pacientes e comunicação, permitindo que o profissional tenha mais tempo e foco para cuidar do que realmente importa: o bem-estar dos seus pacientes. Tudo isso com uma identidade visual leve, inspirada na calma da natureza.",
-    tags: ["Next", "TypeScript", "Tailwind CSS"],
+    tags: ["Next", "TypeScript", "Tailwind CSS", "CI/CD", "Docker", "Stripe"],
     image: "sereno.png",
     github: {
       backend: "https://github.com/cayke1/mental-health-backend",
@@ -47,7 +47,7 @@ export const projectsDataEn: Project[] = [
     title: "Sereno",
     description:
       "Sereno is a management system designed for mental health professionals, focused on providing a calm and efficient experience. It automates tasks such as scheduling, documentation management, patient monitoring, and communication, allowing professionals to spend more time focusing on what truly matters: their patients' well-being. All of this is delivered with a light visual identity inspired by the calmness of nature.",
-    tags: ["Next", "TypeScript", "Tailwind CSS", "CI/CD", "Docker"],
+    tags: ["Next", "TypeScript", "Tailwind CSS", "CI/CD", "Docker", "Stripe"],
     image: "sereno.png",
     github: {
       backend: "https://github.com/cayke1/mental-health-backend",
