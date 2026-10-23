@@ -62,11 +62,11 @@ module.exports = {
     				ring: 'hsl(var(--sidebar-ring))'
     			},
     			theme: {
-    				dark: '#171023',
-    				purple: '#6E44FF',
-    				lavender: '#B892FF',
-    				pink: '#FF44E3',
-    				blue: '#44AFFF'
+    				dark: '#15171A',
+    				purple: '#1E3A8A',
+    				lavender: '#4B5160',
+    				pink: '#1E3A8A',
+    				blue: '#1E3A8A'
     			},
     			chart: {
     				'1': 'hsl(var(--chart-1))',
@@ -83,11 +83,17 @@ module.exports = {
     		},
     		fontFamily: {
     			sans: [
-    				'Poppins',
+    				'var(--font-geist-sans)',
+    				'system-ui',
     				'sans-serif'
     			],
+    			mono: [
+    				'var(--font-geist-mono)',
+    				'ui-monospace',
+    				'monospace'
+    			],
     			inter: [
-    				'Inter',
+    				'var(--font-geist-sans)',
     				'sans-serif'
     			]
     		},

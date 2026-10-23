@@ -17,9 +17,6 @@ export const metadata: Metadata = {
   title: "Cayke Veras | Desenvolvedor Backend",
   description:
     "Portfólio de Cayke Veras - Desenvolvedor FullStack especializado em Node.js, NestJS, TypeScript e tecnologias modernas para web.",
-  icons: [
-    { url: "favicon.ico", sizes: "any", type: "image/x-icon" },
-  ],
 };
 
 export default function RootLayout({

@@ -32,14 +32,17 @@ export function Navbar() {
     <header
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-background/95 backdrop-blur-sm shadow-md"
+          ? "bg-background/90 backdrop-blur-sm border-b border-border"
           : "bg-transparent"
       }`}
     >
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
         <div className="flex-1">
-          <Link href="/" className="text-2xl font-bold text-gradient">
-            {name.firstName} {" "}<span className="text-white">{name.lastName}</span>
+          <Link
+            href="/"
+            className="text-[16px] font-semibold tracking-[-0.01em] text-foreground"
+          >
+            {name.firstName} {name.lastName}
           </Link>
         </div>
 

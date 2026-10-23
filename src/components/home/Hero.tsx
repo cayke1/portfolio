@@ -1,65 +1,110 @@
-import { ChevronDown } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { useEffect, useState } from "react";
-import Link from "next/link";
+"use client";
 import { useLanguage } from "@/contexts/LanguageContext";
 
-export function Hero() {
-  const [visible, setVisible] = useState(false);
-  const { t } = useLanguage();
+const AVAILABLE = true;
 
-  useEffect(() => {
-    setVisible(true);
-  }, []);
+export function Hero() {
+  const { t, language } = useLanguage();
+
+  const spec: [string, string][] =
+    language === "pt"
+      ? [
+          ["função", "full stack"],
+          ["foco", "backend"],
+          ["stack", "node, nestjs, postgres"],
+          ["base", "Palmas, TO"],
+          ["idiomas", "pt, en"],
+        ]
+      : [
+          ["role", "full stack"],
+          ["focus", "backend"],
+          ["stack", "node, nestjs, postgres"],
+          ["based", "Palmas, BR"],
+          ["speaks", "pt, en"],
+        ];
+
+  const rows: [string, string][] = AVAILABLE
+    ? [...spec, ["status", language === "pt" ? "disponível" : "available"]]
+    : spec;
 
   return (
-    <section className="min-h-screen flex flex-col justify-center items-center relative overflow-hidden">
-      <div className="absolute w-[500px] h-[500px] rounded-full bg-theme-purple/10 blur-3xl -z-10 top-1/3 -translate-y-1/2 left-1/2 -translate-x-1/2" />
-
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div
-          className={`transition-opacity duration-1000 ${
-            visible ? "opacity-100" : "opacity-0"
-          }`}
+    <section className="mx-auto flex max-w-[1120px] flex-wrap items-end gap-x-[clamp(40px,6vw,72px)] gap-y-10 px-[clamp(20px,4vw,40px)] pb-[clamp(56px,8vw,96px)] pt-[clamp(40px,8vw,88px)]">
+      <div className="min-w-0 max-w-[720px] flex-[1_1_520px]">
+        <p
+          data-anim
+          className="m-0 mb-7 flex items-center gap-2.5 font-mono text-[13px] text-[#6B7280]"
+          style={{ animation: "rise 600ms cubic-bezier(.2,.7,.2,1) both" }}
         >
-          <p className="text-theme-purple mb-4 font-semibold">
+          {AVAILABLE && (
+            <span
+              aria-hidden
+              data-anim
+              className="inline-block h-[7px] w-[7px] bg-[#1E3A8A]"
+              style={{ animation: "pulse-dot 2.4s ease-in-out 1s infinite" }}
+            />
+          )}
+          <span>
             {t("hero_role")}
-          </p>
+            {AVAILABLE ? `, ${t("home_available_suffix")}` : ""}
+          </span>
+        </p>
 
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            {t("hero_title")} <br />
-            <span className="text-gradient">{t("hero_title_highlight")}</span>
-          </h1>
+        <h1
+          data-anim
+          className="m-0 text-[clamp(40px,6.2vw,72px)] font-semibold leading-[1.02] tracking-[-0.04em] text-[#15171A] [text-wrap:balance]"
+          style={{ animation: "rise 700ms cubic-bezier(.2,.7,.2,1) 90ms both" }}
+        >
+          {t("home_hero_title")}
+        </h1>
 
-          <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            {t("hero_description")}
-          </p>
+        <p
+          data-anim
+          className="mt-7 max-w-[58ch] text-[clamp(17px,1.6vw,19px)] leading-[1.6] text-[#4B5160] [text-wrap:pretty]"
+          style={{ animation: "rise 700ms cubic-bezier(.2,.7,.2,1) 180ms both" }}
+        >
+          {t("home_hero_sub")}
+        </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link href="/projects">
-              <Button
-                size="lg"
-                className="bg-theme-purple hover:bg-theme-purple/90"
-              >
-                {t("hero_button_projects")}
-              </Button>
-            </Link>
-            <Link href="/experience">
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-theme-purple text-theme-purple hover:bg-theme-purple/10"
-              >
-                {t("hero_button_about")}
-              </Button>
-            </Link>
-          </div>
+        <div
+          data-anim
+          className="mt-10 flex flex-wrap gap-3"
+          style={{ animation: "rise 700ms cubic-bezier(.2,.7,.2,1) 270ms both" }}
+        >
+          <a
+            href="#trabalho"
+            className="inline-flex h-12 items-center border border-[#1E3A8A] bg-[#1E3A8A] px-[22px] text-[15px] font-medium text-white no-underline transition-colors hover:bg-[#15296B]"
+          >
+            {t("home_cta_work")}
+          </a>
+          <a
+            href="#contato"
+            className="inline-flex h-12 items-center border border-[#CFD2DA] bg-white px-[22px] text-[15px] font-medium text-[#15171A] no-underline transition-colors hover:border-[#15171A]"
+          >
+            {t("home_cta_contact")}
+          </a>
         </div>
       </div>
 
-      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 animate-bounce">
-        <ChevronDown size={24} className="text-theme-purple" />
-      </div>
+      <dl
+        data-anim
+        aria-label={t("home_spec_label")}
+        className="m-0 min-w-[260px] flex-[0_1_340px] border border-[#E7E8EC] bg-white font-mono text-[13px] leading-[1.5]"
+        style={{ animation: "rise 800ms cubic-bezier(.2,.7,.2,1) 380ms both" }}
+      >
+        <div className="flex justify-between border-b border-[#E7E8EC] px-4 py-2.5 text-[#6B7280]">
+          <span>profile.json</span>
+          <span>v2026</span>
+        </div>
+        {rows.map(([k, v]) => (
+          <div
+            key={k}
+            className="grid grid-cols-[84px_minmax(0,1fr)] gap-3 border-b border-[#F0F1F4] px-4 py-2.5 last:border-b-0"
+          >
+            <dt className="text-[#6B7280]">{k}</dt>
+            <dd className="m-0 text-[#15171A]">{v}</dd>
+          </div>
+        ))}
+      </dl>
     </section>
   );
 }

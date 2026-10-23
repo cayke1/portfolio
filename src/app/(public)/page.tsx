@@ -1,14 +1,17 @@
-"use client";
 import { Hero } from "@/components/home/Hero";
-import { ProjectsGrid } from "@/components/home/ProjectsGrid";
-import { Skills } from "@/components/home/Skills";
+import { SelectedWork } from "@/components/home/SelectedWork";
+import { Stack } from "@/components/home/Stack";
+import { ExperienceHighlight } from "@/components/home/ExperienceHighlight";
+import { Contact } from "@/components/home/Contact";
 
 export default function Home() {
   return (
     <>
       <Hero />
-      <ProjectsGrid />
-      <Skills />
+      <SelectedWork />
+      <Stack />
+      <ExperienceHighlight />
+      <Contact />
     </>
   );
 }

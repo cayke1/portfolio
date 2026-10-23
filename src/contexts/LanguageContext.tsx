@@ -95,6 +95,28 @@ const translations = {
     skills_title_highlight: "habilidades",
     skills_subtitle: "Tecnologias e ferramentas que utilizo",
 
+    // Home (redesign)
+    home_available_suffix: "disponível para novas oportunidades",
+    home_hero_title: "Construo APIs e sistemas que aguentam escala.",
+    home_hero_sub:
+      "Engenheiro full stack com foco em backend: Node.js, NestJS, TypeScript e PostgreSQL, do modelo de dados ao deploy em Docker. No front, React e Next.js consumindo as APIs que eu mesmo desenho.",
+    home_cta_work: "Ver trabalho",
+    home_cta_contact: "Entrar em contato",
+    home_spec_label: "Resumo do perfil",
+    home_label_work: "trabalho",
+    home_work_title: "Trabalho selecionado",
+    home_all_projects: "Ver todos os projetos",
+    home_label_stack: "stack",
+    home_stack_title: "Capacidades, organizadas por onde atuo",
+    home_label_exp: "experiência",
+    home_exp_title: "Experiência",
+    home_full_exp: "Ver experiência completa",
+    home_current: "atual",
+    home_label_contact: "contato",
+    home_contact_title: "Vamos conversar.",
+    home_contact_sub:
+      "Estou aberto a vagas full stack e backend. Mande um email com o contexto da vaga ou do projeto e eu respondo.",
+
     // Experience page
     experience_title: "Minha",
     experience_title_highlight: "Jornada",
@@ -165,6 +187,28 @@ const translations = {
     skills_title: "My",
     skills_title_highlight: "Skills",
     skills_subtitle: "Technologies and tools I use",
+
+    // Home (redesign)
+    home_available_suffix: "open to new opportunities",
+    home_hero_title: "I build APIs and systems that hold up at scale.",
+    home_hero_sub:
+      "Full stack engineer focused on the backend: Node.js, NestJS, TypeScript and PostgreSQL, from the data model to Docker deploy. On the front, React and Next.js consuming the APIs I design myself.",
+    home_cta_work: "See work",
+    home_cta_contact: "Get in touch",
+    home_spec_label: "Profile summary",
+    home_label_work: "work",
+    home_work_title: "Selected work",
+    home_all_projects: "View all projects",
+    home_label_stack: "stack",
+    home_stack_title: "Capabilities, grouped by where I work",
+    home_label_exp: "experience",
+    home_exp_title: "Experience",
+    home_full_exp: "See full experience",
+    home_current: "current",
+    home_label_contact: "contact",
+    home_contact_title: "Let's talk.",
+    home_contact_sub:
+      "I'm open to full stack and backend roles. Send me an email with the context of the role or project and I'll get back to you.",
 
     // Experience page
     experience_title: "My",
